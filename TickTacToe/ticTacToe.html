@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+  <style type="text/css">
+
+  	#gameBox{
+  		border: solid;
+  		height: 306px;
+  		width: 306px;
+  		position: relative;
+  		display: flex;
+  		flex-wrap: wrap;
+      
+  	}
+.box{
+	border: solid;
+    width: 100px;
+    height: 100px;
+    border-width: 0.5px;
+    background-color: whitesmoke;
+
+}
+
+
+
+
+  </style>
+</head>
+<body>
+	<div id = 'wholeGame'>
+		<div id = 'gameBox'>
+			 <div class = 'box' id="1"></div>
+			 <div class = 'box' id="2"></div>
+			 <div class = 'box' id="3"></div>
+			 <div class = 'box' id="4"></div>
+			 <div class = 'box' id="5"></div>
+			 <div class = 'box' id="6"></div>
+			 <div class = 'box' id="7"></div>
+			 <div class = 'box' id="8"></div>
+			 <div class = 'box' id="9"></div>
+           
+
+
+
+
+
+
+
+
+
+		</div>
+		<br>
+<div id="red">
+	<label style="color: indianred;">Red box</label>
+	<br>
+	<input type="text" id="redInput">
+	<br>
+	<button class="bu" id = 'redIn'>Enter</button>
+
+</div>
+<div id="black">
+	<label style="color: black;">Black box</label>
+	<br>
+	<input type="text" id="blackInput">
+	<br>
+	<button  class="bu" id = 'blackIn' >Enter</button>
+
+</div>
+
+<h2 id = 'knowledge'>
+	
+</h2>
+
+
+	</div>
+
+</body>
+<script>
+
+
+	var caseOne = 0;
+	var caseTwo = 0;
+	var caseThree = 0;
+	var caseFour = 0;
+
+var caseFive = 0;
+
+var caseSix = 0;
+var caseSeven = 0;
+var caseEight = 0;
+var caseNine = 0;
+var caseTen = 0;
+var caseOne_ = 0;
+var caseTwo_= 0;
+var caseThree_ = 0;
+var caseFour_ = 0;
+var caseFive_ = 0;
+var caseSeven_ = 0;
+var caseEight_ = 0;
+var caseNine_ = 0;
+var caseTen_ = 0;
+
+// 1 2 3 
+// 4 5 6
+// 7 8 9
+//caseThree++;
+
+ 
+var listOfValues = [""];
+	document.getElementById('redIn').onclick = function(){	
+	
+		let red = document.getElementById('1');
+     let redChoice = document.getElementById('redInput').value;
+  
+     if(redChoice=='at 1'){
+     	caseOne = caseOne+1;
+      caseEight++;
+      caseNine++;
+         console.log(caseOne);
+          // red.style.background = 'url(x.jpg)';
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push('at 1');
+          redChoice.textContent = '';
+          
+  
+
+
+          document.getElementById('redInput').value = "";
+
+    
+
+
+     }
+
+    else if(redChoice=='at 2'){
+    	// caseOne = caseOne+1;
+    	 caseTwo++;
+    	 caseEight++;
+    	  console.log(caseOne);
+          // red.style.background = 'url(x.jpg)';
+          
+          red = document.getElementById('2');
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push('at 2');
+
+     
+          document.getElementById('redInput').value = "";
+          
+          
+     }
+     else if(redChoice=='at 3'){
+     //	caseOne = caseOne+1;
+     	caseThree++;
+     	caseTen++;
+     	caseEight++;
+          // red.style.background = 'url(x.jpg)';
+         listOfValues.push('at 3');
+          red = document.getElementById('3');
+          red.style.backgroundColor = 'indianred';
+    
+          
+         
+ console.log(caseOne);
+          document.getElementById('redInput').value = "";
+     }
+       else if(redChoice=='at 4'){
+          // red.style.background = 'url(x.jpg)';
+          caseOne++;
+          caseFour++;
+          
+          red = document.getElementById('4');
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push(redChoice);
+          document.getElementById('redInput').value = "";
+     }
+       else if(redChoice=='at 5'){
+          // red.style.background = 'url(x.jpg)';
+          caseTwo++;
+          caseNine++;
+          caseTen++;
+         // caseTwo++;
+          //caseThree++;
+          caseFour++;
+          red = document.getElementById('5');
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push(redChoice);
+          document.getElementById('redInput').value = "";
+     }
+       else if(redChoice=='at 6'){
+          // red.style.background = 'url(x.jpg)';
+          caseThree++;
+         caseFour++;
+
+          red = document.getElementById('6');
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push(redChoice);
+          document.getElementById('redInput').value = "";
+     }
+       else if(redChoice=='at 7'){
+          // red.style.background = 'url(x.jpg)';
+         // caseThree++;
+          caseOne++;
+          caseSeven++;
+          caseTen++;
+          red = document.getElementById('7');
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push(redChoice);
+          document.getElementById('redInput').value = "";
+     }
+       else if(redChoice=='at 8'){
+          // red.style.background = 'url(x.jpg)';
+          red = document.getElementById('8');
+          caseTwo++;
+          caseSeven++;
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push(redChoice);
+          document.getElementById('redInput').value = "";
+     }
+       else if(redChoice=='at 9'){
+          // red.style.background = 'url(x.jpg)';
+         caseThree++;
+          caseSeven++;
+          caseNine++;
+          red = document.getElementById('9');
+          red.style.backgroundColor = 'indianred';
+           listOfValues.push(redChoice);
+       document.getElementById('redInput').value = "";
+     }
+else {
+      document.getElementById('knowledge').textContent= 'Invalid input';
+}
+if(caseOne==3){
+document.getElementById('knowledge').textContent= 'red won';
+alert('red won');
+}
+if(caseTwo==3){
+	document.getElementById('knowledge').textContent= 'red won';
+	alert('red won');
+}
+if (caseThree==3){
+	document.getElementById('knowledge').textContent= 'red won';
+	alert('red won');
+}
+	if(caseFour==3){
+	document.getElementById('knowledge').textContent= 'red won';
+	alert('red won');
+	}
+	if(caseSeven==3){
+		document.getElementById('knowledge').textContent= 'red won';
+		alert('red won');
+	}
+
+if(caseEight==3){
+	document.getElementById('knowledge').textContent= 'red won';
+	alert('red won');
+}
+if(caseNine==3){
+	document.getElementById('knowledge').textContent= 'red won';
+	alert('red won');
+}
+if(caseTen==3){
+	document.getElementById('knowledge').textContent= 'red won';
+	alert('red won');
+}
+document.getElementById('redInput').value = "";
+
+	}
+
+
+	document.getElementById('blackIn').onclick= function(){
+		console.log('u are pressing it');
+	
+ let blackChoice = document.getElementById('blackInput').value;
+    black = document.getElementById('1');
+  
+    if(blackChoice=='at 1'){
+    	caseOne_++;
+    	caseEight_++;
+    	caseNine_++;
+    	black.style.backgroundColor = 'black';
+    }
+    else if(blackChoice=='at 2'){
+    	caseTwo_++
+    	caseEight_++;
+
+    	 black = document.getElementById('2');
+    	 black.style.backgroundColor = 'black';
+    }
+
+     else if(blackChoice=='at 3'){
+     	caseThree_++;
+     	caseEight_++;
+      caseTen_++;
+    	 black = document.getElementById('3');
+    	 black.style.backgroundColor = 'black';
+    }
+     else if(blackChoice=='at 4'){
+
+    	 black = document.getElementById('4');
+    	 caseOne_++;
+    	 caseFour_++;
+    	 black.style.backgroundColor = 'black';
+    }
+     else if(blackChoice=='at 5'){
+      caseTen_++;
+      	caseNine_++;
+     	caseTwo_++
+     	caseFour_++;
+    	 black = document.getElementById('5');
+    	 black.style.backgroundColor = 'black';
+    }
+     else if(blackChoice=='at 6'){
+     	caseThree_++;
+     	caseFour_++;
+    	 black = document.getElementById('6');
+    	 black.style.backgroundColor = 'black';
+    }
+     else if(blackChoice=='at 7'){
+     	caseTen_++;
+     	caseOne_++;
+     	caseSeven_++;
+    	 black = document.getElementById('7');
+    	 black.style.backgroundColor = 'black';
+    }
+     else if(blackChoice=='at 8'){
+     	caseTwo_++
+     	caseSeven_++;
+    	 black = document.getElementById('8');
+    	 black.style.backgroundColor = 'black';
+    }
+     else if(blackChoice=='at 9'){
+     		caseNine_++;
+     	caseThree_++;
+     	caseSeven_++;
+    	 black = document.getElementById('9');
+    	 black.style.backgroundColor = 'black';
+    }
+    else {
+  document.getElementById('knowledge').textContent= 'Invalid input';
+    }
+if(caseOne_==3){
+	document.getElementById('knowledge').textContent= 'black won';
+	alert('black won');
+}
+if(caseTwo_==3){
+	document.getElementById('knowledge').textContent= 'black won';
+		alert('black won');
+}
+if (caseThree_==3){
+	document.getElementById('knowledge').textContent= 'black won';
+		alert('black won');
+}
+	if(caseFour_==3){
+		 document.getElementById('knowledge').textContent= 'black won';
+		 	alert('black won');
+	}
+	if(caseSeven_==3){
+		document.getElementById('knowledge').textContent= 'black won';
+			alert('black won');
+	}
+
+if(caseEight_==3){
+	document.getElementById('knowledge').textContent= 'black won';
+		alert('black won');
+}
+if(caseNine_==3){
+	document.getElementById('knowledge').textContent= 'black won';
+		alert('black won');
+}
+if(caseTen_==3){
+	document.getElementById('knowledge').textContent= 'black won';
+		alert('black won');
+}
+
+
+
+  document.getElementById('blackInput').value = '';
+	}
+
+
+
+
+
+
+</script>
+</html>
