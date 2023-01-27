@@ -1,0 +1,49 @@
+.mainGame{
+border: solid;
+height: 606px;
+width: 606px;
+display: flex;
+flex-wrap: wrap;
+position: relative;
+animation: mover;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+}
+.space{
+
+	border: solid;
+    color: black;
+	height: 200px;
+	width: 200px;
+	border-width:1px ;
+
+}
+.mole{
+     background-image: url('mole.PNG');
+      background-size: cover;
+      }
+ @keyFrames mover{
+  0%{
+  	left: 0px;
+  	right: 0px;
+  }
+
+25%{
+	left: 700px;
+	right: 0px;
+
+}
+50%{
+	left: 0px;
+	right: 300px;
+}
+75%{
+	left: 0 px;
+	right: 200px;
+}
+100%{
+	left: 0px;
+	right: 3px;
+}
+
+ }
