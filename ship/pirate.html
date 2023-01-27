@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#mainGame{
+			height: 680px;
+			width: 1500px;
+			border: solid;
+		}
+      #water{
+      	 height: 340px;
+      	 width: 1500px;
+      
+         position: relative;
+         top: 340px;  
+         background-color: skyblue;
+      }
+      #ship{
+      	height: 180px;
+      	width: 230px;
+      	position: relative;
+     
+      
+       background-image: url('boat.jpg');
+          background-position: -20px 29px;
+        background-size: cover;
+      }
+
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<div id="mainGame">
+    <div id="water" ></div>
+    <div id="ship"></div>
+
+</div>
+</body>
+<script type="text/javascript">
+
+
+
+
+
+
+
+	var shipPosition = 0;
+   var playerHealth = 10;
+ 
+
+ var enemyPosition = 700;
+
+//var spawning = document.getElementById('mainGame');
+ var enemy = document.createElement("div");
+ //var enemyOne = document.createElement('img');
+
+ //enemyOne.scr = 'enemyOne.jpg';
+  //enemyOne.height = '180';
+ //enemyOne.width = '230';
+
+ enemy.style.position = 'relative';
+ enemy.style.height = 220+'px';
+ enemy.style.width = 230+'px';
+ //enemy.style.border = 'solid';
+ 
+ enemy.style.left = enemyPosition+'px';
+ enemy.style.bottom= 402+'px';
+enemy.style.backgroundImage = 'url(enemyWeak.jpg)';
+enemy.style.backgroundPosition= '0px 29px';
+enemy.style.backgroundSize = '180px 230px';
+enemy.style.backgroundRepeat = 'no-repeat';
+//enemy.appendChild(enemyOne);
+var lefty = enemyPosition+230;
+var weakEnemyHealth = 5;
+
+
+
+
+
+
+
+document.getElementById('mainGame').appendChild(enemy);
+
+var go = setInterval(enemyMove,500);
+
+var ship = document.getElementById("ship");
+
+     
+
+     window.addEventListener("keydown",mover);
+ship.style.right = shipPosition+ 'px';
+ship.style.bottom = 179+"px";
+var right = shipPosition+230;
+setInterval(function(){
+    console.log(weakEnemyHealth);
+},20);
+
+
+function mover(event){
+    var enemyOneAlive = true;
+ if(event.key == "ArrowRight"){
+	  shipPosition = shipPosition+5;
+         ship.style.left = shipPosition +'px'
+      
+
+}
+else if(event.key=="ArrowLeft"){
+   shipPosition = shipPosition-5;
+    ship.style.left = shipPosition +'px';
+}
+
+else if(event.key=='ArrowUp'){
+     var bulletPosition = (shipPosition+190);
+         var bullet = document.createElement('div');
+   bullet.style.width = 8+'px';
+   bullet.style.height = 8+'px';
+   bullet.style.border = 'solid';
+   bullet.style.position = 'relative';
+   bullet.style.backgroundColor = "red";
+   
+    document.getElementById('mainGame').appendChild(bullet);
+
+  var shoot =  setInterval(function(){
+      //  bulletPosition = bulletPosition+30+ shipPosition;
+          bulletPosition = bulletPosition+10;
+      bullet.style.left = bulletPosition+'px';
+        bullet.style.bottom = 460+'px';
+       // console.log(bulletPosition);
+        if(bulletPosition-shipPosition>=700||bulletPosition>=1480){
+          document.getElementById('mainGame').removeChild(bullet);
+
+      clearInterval(shoot);
+     
+
+   }
+  else  if(enemyOneAlive==true){
+   if(bulletcollision(bulletPosition)==true){
+      weakEnemyHealth = weakEnemyHealth-1;
+   
+     
+if(weakEnemyHealth<=0){
+   enemyOneAlive = false;
+         //document.getElementById('mainGame').removeChild(enemy);
+               alert("enemy defeated")
+     
+
+ document.getElementById('mainGame').removeChild(enemy);
+  clearInterval(shoot);
+  //bullet.style.bottom = 460+'px';
+
+}
+   document.getElementById('mainGame').removeChild(bullet);
+  clearInterval(shoot);
+     }
+ //bullet.style.bottom = 460+'px';
+
+
+}
+ 
+
+
+
+   },50);
+  
+   
+
+
+
+
+   
+//document.getElementById('mainGame').parentNode.removeChild(bullet);
+//document.getElementById('mainGame').removeChild(bullet);
+}
+
+
+if(shipPosition<=0){
+	shipPosition = 0;
+ shipPosition.style.left = shipPosition+'px';
+
+}
+else if(shipPosition>=1270){
+shipPosition = 1270;
+ shipPosition.style.left = shipPosition+'px';
+}
+
+
+
+}
+function enemyMove(){
+   enemyPosition = enemyPosition-2;
+    enemy.style.left = enemyPosition+'px';
+
+if(enemyPosition>shipPosition&&enemyPosition<shipPosition+right){
+   console.log('matched');
+    playerHealth--;
+    if(playerHealth<=0){
+      alert('Game Over!');
+    }
+}
+
+
+}
+
+function moveForward(){
+    enemyPosition = enemyPosition-2;
+    enemy.style.left = enemyPosition+'px';
+
+}
+function moveBackward(){
+    enemyPosition = enemyPosition+2;
+enemy.style.left = enemyPosition+'px';
+}
+function bulletcollision(bulletPosition){
+    if(bulletPosition>enemyPosition&&bulletPosition<enemyPosition+lefty){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
+
+</script>
+</html>
