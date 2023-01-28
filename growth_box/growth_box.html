@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#canvas{
+			border: solid;
+		}
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<canvas id="canvas" height="700px" width="700px">
+ 
+</canvas>
+ <text id="score"></text>
+</body>
+
+
+
+<script type="text/javascript">
+	var canva = document.getElementById("canvas");
+	var ctx = canva.getContext('2d');
+	var target = canva.getContext('2d');
+	window.addEventListener("keydown",movingStuff);
+
+let x=0;
+let y = 0;
+var growth_x = 50
+var growth_y = 50
+ ctx.fillRect(x,y,growth_x,growth_y);
+
+//let randomX = 80;
+//let randomY = 80;
+var randomX = Math.floor(Math.random()*350);
+var randomY = Math.floor(Math.random()*350);
+  target.fillStyle = "Red";
+target.fillRect(randomX,randomY,50,50);
+setInterval(spawn,3000);
+//spawn();
+//setInterval(print,50);
+var width = 50;
+var height = 50;
+ var score = 0;
+ var left = x;
+//var right = x + width;
+ var right = x+ growth_x;
+ var bottom = y+ growth_y
+var top = y;
+//var bottom = y + height;
+let keep = 0;
+
+document.getElementById('score').style.position = 'relative'
+document.getElementById('score').style.left = 800+'px'
+
+document.getElementById('score').style.innerHTML = keep;
+function print(){
+	console.log(x,y);
+}
+function movingStuff(event){
+
+
+
+ if(event.key=="ArrowUp"){
+ctx.clearRect(x,y,growth_x,growth_y);
+   y = y-5;
+  ctx.fillStyle = "Black";
+ ctx.fillRect(x,y,growth_x,growth_y);
+
+ }
+else if(event.key=="ArrowDown"){
+ctx.clearRect(x,y,growth_x,growth_y);
+   y = y+5;
+ctx.fillStyle = "Black";
+ ctx.fillRect(x,y,growth_x,growth_y);
+}
+else if(event.key == "ArrowRight"){
+	  ctx.clearRect(x,y,growth_x,growth_y);
+   x = x+5;
+ctx.fillStyle = "Black";
+ ctx.fillRect(x,y,growth_x,growth_y);
+
+
+}
+else if(event.key=="ArrowLeft"){
+ ctx.clearRect(x,y,growth_x,growth_y);
+   x = x-5;
+ctx.fillStyle = "Black";
+ ctx.fillRect(x,y,growth_x,growth_y);
+}
+if(x>=canva.width- growth_x){
+
+ctx.clearRect(x,y,50,50);
+ x = canva.width-50;
+ ctx.fillRect(x,y,50,50);
+
+}
+if(x<=0){
+	ctx.clearRect(x,y,50,50);
+ x = 0;
+ ctx.fillRect(x,y,50,50);
+}
+
+
+
+ if(y>=canva.height- growth_y){
+	ctx.clearRect(x,y,50,50);
+ y = canva.height-50;
+ ctx.fillRect(x,y,50,50);
+}
+if(y<=0){
+	ctx.clearRect(x,y,50,50);
+ y =0
+ ctx.fillRect(x,y,50,50);
+
+}
+if(randomX>x&&randomX<x+width&& randomY>y&& randomY<y+height){
+	//score++;
+   console.log("matched");
+    growth_x = growth_x+2;
+    growth_y = growth_y+2
+  //d
+    keep = score_increase(keep)
+    document.getElementById('score').value = score_increase(keep);
+}
+
+
+}
+function spawn(){
+
+	target.clearRect(randomX,randomY,50,50);
+ randomX = Math.floor(Math.random()*350);
+randomY = Math.floor(Math.random()*350);
+  target.fillStyle = "Red";
+target.fillRect(randomX,randomY,50,50);
+
+}
+function print(){
+	console.log(x+ ","+y);
+}
+function score_increase(up){
+    up = up +2;
+    return up;
+}
+
+</script>
+</html>
